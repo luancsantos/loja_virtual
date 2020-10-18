@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virutal_app/tiles/drawer_tile.dart';
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,53 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: Stack(
         children: [
-          _buildDrawerBack()
+          _buildDrawerBack(),
+          ListView(
+            padding: EdgeInsets.only(left: 32.0, top: 15.0),
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 8.0),
+                padding: EdgeInsets.fromLTRB(0.0, 16.0, 16.0, 8.0),
+                height: 170.0,
+                child: Stack(
+                  children: [
+                    Positioned(
+                        top: 8.0,
+                        left: 0.0,
+                        child: Text('Cake´s\nLuha',
+                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                        )
+                    ),
+                    Positioned(
+                        bottom: 0.0,
+                        left: 0.0,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Olá',
+                              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                            ),
+                            GestureDetector(
+                              child:
+                              Text('Entre ou cadastre-se',
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: 13, fontWeight: FontWeight.bold
+                                ),
+                              ),
+                              onTap: (){},
+                            ),
+                          ],
+                        )
+                    ),
+
+                  ],
+                ),
+              ),
+              Divider(),
+              DrawerTile()
+            ],
+          )
         ],
       ),
     );
