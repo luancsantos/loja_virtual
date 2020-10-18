@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "295783763831-a66bhfipuvnopi89g3ojg4v36islminr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.luan.loja_virutal_app",
+            "certificate_hash": "d6359fe5f6fb636bafb135a6b745630470b6665e"
+          }
+        },
+        {
           "client_id": "295783763831-cdg6ho7e2c9225dol4f7uhujhk2qro08.apps.googleusercontent.com",
           "client_type": 3
         }
