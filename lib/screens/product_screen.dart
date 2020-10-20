@@ -41,6 +41,27 @@ class _ProductScreenState extends State<ProductScreen> {
               autoplay: false,
             ),
           ),
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  product.title, 
+                  style: TextStyle(fontSize: 20.0,
+                  fontWeight: FontWeight.w500
+                  ),
+                ),
+                Text(
+                  "R\$ ${product.price}", 
+                  style: TextStyle(fontSize: 17.0,
+                  fontWeight: FontWeight.w500,
+                  color: primaryColor
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
