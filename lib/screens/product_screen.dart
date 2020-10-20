@@ -29,7 +29,7 @@ class _ProductScreenState extends State<ProductScreen> {
       body: ListView(
         children: [
           AspectRatio(
-            aspectRatio: 0.9,
+            aspectRatio: 1.1,
             child: Carousel(
               images: product.images.map((e) {
                 return NetworkImage(e);
