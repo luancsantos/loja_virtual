@@ -31,7 +31,7 @@ class CategoryScreen extends StatelessWidget {
               return Center(child: CircularProgressIndicator(),);
             } else {
               return TabBarView(
-                physics: NeverScrollableScrollPhysics(),
+                
                 children: [
                   GridView.builder(
                     padding: EdgeInsets.all(4.0),
