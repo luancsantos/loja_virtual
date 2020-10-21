@@ -37,7 +37,7 @@ class CategoryScreen extends StatelessWidget {
                     padding: EdgeInsets.all(4.0),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.68,
+                      childAspectRatio: 0.78,
                       crossAxisSpacing: 4.0,
                       mainAxisSpacing: 4.0,
                     ),

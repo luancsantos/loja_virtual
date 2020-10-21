@@ -11,6 +11,7 @@ class ProductData {
   double price;
 
   List images;
+  List sizes;
 
   ProductData.fromDocument(DocumentSnapshot snapshot){
     id = snapshot.documentID;
@@ -18,7 +19,6 @@ class ProductData {
     description = snapshot.data['description'];
     price = snapshot.data['price'] + 0.0;
     images = snapshot.data['images'];
-
-
+    sizes = snapshot.data['size'];
   }
 }
