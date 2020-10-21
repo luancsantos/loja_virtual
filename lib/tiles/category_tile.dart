@@ -12,7 +12,7 @@ class CategoryTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         radius: 25.0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent,  
         backgroundImage: NetworkImage(snapshot.data['icon']),
       ),
       title: Text(snapshot.data['title']),
