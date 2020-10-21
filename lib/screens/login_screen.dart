@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virutal_app/screens/sign_up_sceen.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -12,7 +13,11 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           FlatButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => SingUpScreen()),
+              );
+            },
             child: Text(
               'Criar Conta',
               style: TextStyle(fontSize: 15.0),
@@ -42,7 +47,6 @@ class LoginScreen extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: 'Senha'
               ),
-              obscureText: true,
               validator: (text){
                 if (text.isEmpty || text.length < 6) {
                   return 'Senha inválida';
