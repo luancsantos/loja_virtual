@@ -104,17 +104,6 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
                 SizedBox(height: 16.0),
-                  SizedBox(
-                    height: 60.0,
-                    child: Text(
-                      product.description, 
-                      style: TextStyle(fontSize: 17.0,
-                      fontWeight: FontWeight.w500,
-                      color: primaryColor
-                      ),
-                    ),
-                  ),
-                SizedBox(height: 16.0),
                 SizedBox(
                   height: 48.0,
                   child: RaisedButton(
@@ -127,6 +116,28 @@ class _ProductScreenState extends State<ProductScreen> {
                     textColor: Colors.white,
                   ),
                 ),
+                SizedBox(height: 18.0),
+                SizedBox(
+                    height: 20.0,
+                    child: Text(
+                      'Descrição do produto', 
+                      style: TextStyle(fontSize: 17.0,
+                      fontWeight: FontWeight.w500,
+                      color: primaryColor
+                      ),
+                    ),
+                  ),
+                SizedBox(height: 20.0),
+                  SizedBox(
+                    height: 60.0,
+                    child: Text(
+                      product.description, 
+                      style: TextStyle(fontSize: 17.0,
+                      fontWeight: FontWeight.w500,
+                      color: primaryColor
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
