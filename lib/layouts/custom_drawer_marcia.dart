@@ -15,8 +15,9 @@ class CustomDrawer extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 203, 236, 241),
-                Colors.white,
+                Color.fromARGB(255, 204, 153, 0),
+                Color.fromARGB(255, 0, 0, 0),
+                
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter
@@ -40,8 +41,10 @@ class CustomDrawer extends StatelessWidget {
                     Positioned(
                         top: 8.0,
                         left: 0.0,
-                        child: Text('Cake´s\nFlutter',
-                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                        child: Image.asset(
+                          "images/logo_marcia.jpg",
+                          fit: BoxFit.cover,
+                          height: 150.0,
                         )
                     ),
                     Positioned(
@@ -52,25 +55,25 @@ class CustomDrawer extends StatelessWidget {
                           return  Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Olá, ${!model.isLoggedIn() ? "" : model.userData["name"]}",
+                                Text("Olá, ${!model.isLoggedIn() ? '' : model.userData["name"]}",
                                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                                 ),
+                                SizedBox(height: 10.0,),
                                 GestureDetector(
-                                  child:
-                                  Text( !model.isLoggedIn() ? 'Entre ou cadastre-se' : 'Sair', 
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize: 13, fontWeight: FontWeight.bold
-                                    ),
-                                  ),
+                                  child: !model.isLoggedIn() ?
+                                    Text('Entre ou cadastre-se' , 
+                                      style: TextStyle(
+                                          color: Theme.of(context).primaryColor,
+                                          fontSize: 13, fontWeight: FontWeight.bold
+                                      ), 
+                                    )
+                                   : null,
                                   onTap: (){
                                     if (!model.isLoggedIn()) {
                                         Navigator.of(context).push(
                                         MaterialPageRoute(builder: (context) => LoginScreen())
                                       );  
-                                    } else {
-                                      model.signOut();
-                                    }
+                                    } 
                                   },
                                 ),
                               ],
@@ -78,7 +81,6 @@ class CustomDrawer extends StatelessWidget {
                           }
                         ),
                     ),
-
                   ],
                 ),
               ),
@@ -86,7 +88,43 @@ class CustomDrawer extends StatelessWidget {
               DrawerTile(Icons.home, 'Início', pageController, 0),
               DrawerTile(Icons.list, 'Produtos', pageController, 1),
               DrawerTile(Icons.location_on, 'Lojas', pageController, 2),
-              DrawerTile(Icons.shopping_cart, 'Meus Pedidos', pageController, 3),
+              DrawerTile(Icons.car_rental, 'Meus Pedidos', pageController, 3),
+              Divider(),
+              GestureDetector(
+                child: ScopedModelDescendant<UserModel>(
+                  builder: (context, child ,model){
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          child: model.isLoggedIn() ? 
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.logout,
+                                size: 32.0,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              SizedBox(width: 30.0),
+                              Text('Sair' , 
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: 13, fontWeight: FontWeight.bold
+                                ),
+                              ), 
+                            ],
+                          ) : null,
+                          onTap: (){
+                            if (model.isLoggedIn()) {
+                             model.signOut();
+                            }
+                          },
+                        )
+                      ],
+                    );
+                  }
+                ),
+              )
             ],
           )
         ],
