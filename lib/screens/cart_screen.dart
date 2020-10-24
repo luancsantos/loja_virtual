@@ -12,11 +12,13 @@ class CartScreen extends StatelessWidget {
           actions: [
             Container(
               padding: EdgeInsets.only(right: 8.0),
+              alignment: Alignment.center,
               child: ScopedModelDescendant<CartModel>(
                 builder: (context, child, model){
                   int p = model.products.length;
                   return Text(
-                    "${p ?? 0} ${p == 1 ? "Item" : "Items"}"
+                    "${p ?? 0} ${p == 1 ? "Item" : "Items"}",
+                    style: TextStyle(fontSize: 17.0),
                   );
                 }
               ),
