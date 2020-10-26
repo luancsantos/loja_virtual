@@ -4,6 +4,9 @@ import 'package:scoped_model/scoped_model.dart';
 
 class CartPrice extends StatelessWidget {
 
+  final VoidCallback buy;
+  CartPrice(this.buy);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -15,46 +18,48 @@ class CartPrice extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Resumo do Pedido'),
+                Text('Resumo do Pedido', textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.bold),),
                 SizedBox(height: 16.0),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Subtotal'),
-                    SizedBox(width: 240.0,),
                     Text('R\$ 81,35'),
                   ],
                 ),
+                Divider(),
                 SizedBox(height: 16.0),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Desconto'),
-                    SizedBox(width: 240.0,),
                     Text('R\$ 81,35'),
                   ],
                 ),
+                Divider(),
                 SizedBox(height: 16.0),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Entrega'),
-                    SizedBox(width: 240.0,),
                     Text('R\$ 81,35'),
                   ],
                 ),
+                Divider(),
                 SizedBox(height: 20.0),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Total'),
-                    SizedBox(width: 240.0,),
                     Text('R\$ 81,35'),
                   ],
                 ),
+                Divider(),
                 RaisedButton(
                   child: Text(
                     'Finalizar Pedido', style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: (){
-
-                  },
+                  onPressed: buy,
                   color: Theme.of(context).primaryColor,
                 ),
               ],
