@@ -79,4 +79,35 @@ class CartModel extends Model {
     products = query.documents.map((doc) => CartProduct.fromDocument(doc)).toList();
     notifyListeners();   
   }
+
+  double getProductsPrice(){
+    double price = 0.0;
+    for (CartProduct c in products) {
+      if (c.productData != null) {
+        price += c.quantity * c.productData.price;
+      }
+    }
+    return price;
+  }
+
+  double getDiscount(){
+    return getProductsPrice() * discountPercentual / 100;
+  }
+
+  double getShipPrice(){
+    return 9.99;
+  }
+
+  void updatedCartPrice(){
+    notifyListeners();
+  }
+
+  void finishOrder(){
+    if(products.length == 0 ) return;
+
+    isLoading = true;
+    notifyListeners();
+    
+  }
+
 }
