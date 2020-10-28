@@ -13,7 +13,8 @@ class OrderScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(35.0),
+        padding: EdgeInsets.all(16.0),
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
